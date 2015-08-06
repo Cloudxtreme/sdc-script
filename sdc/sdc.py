@@ -34,7 +34,7 @@ class SDC:
         """
         Print the access key to stdout
         """
-        print(self.getAccessKey())
+        print('accessKey: ' + self.getAccessKey())
 
     def enableAlerts(self):
         """
