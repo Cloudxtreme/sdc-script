@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: sdc
+Version: v1.0
+Summary: Python library for access the SysdigCloud API
+Home-page: https://sysdig.com/
+Author: Draios Inc. (dba Sysdig) <info@sysdig.com>
+Author-email: info@sysdig.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP :: Browsers
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Utilities

@@ -1,0 +1,9 @@
+setup.py
+sdc/__init__.py
+sdc/api.py
+sdc/sdc.py
+sdc.egg-info/PKG-INFO
+sdc.egg-info/SOURCES.txt
+sdc.egg-info/dependency_links.txt
+sdc.egg-info/requires.txt
+sdc.egg-info/top_level.txt
