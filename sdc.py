@@ -26,7 +26,7 @@ if __name__ == '__main__':
         task = sys.argv[2]
         if task in tasks:
             # Print the task documentation
-            print(eval('sdc.SDC.' + task + '.__doc__').strip())
+            print(getattr(sdc.SDC, task).__doc__.strip())
         else:
             print('Task not found')
     else:
@@ -34,4 +34,4 @@ if __name__ == '__main__':
         if len(sys.argv) == 2 and sys.argv[1] == 'help':
             print('\nList of tasks available:\n')
             for task in tasks:
-                print('\t' + task + '\t' + eval('sdc.SDC.' + task + '.__doc__').strip())
+                print('\t' + task + '\t' + getattr(sdc.SDC, task).__doc__.strip())
