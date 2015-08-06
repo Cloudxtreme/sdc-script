@@ -13,7 +13,7 @@ def disableAlerts(api):
         alert['enabled'] = False        # Disable the alert
 
         id = alert.pop('id', None)      # Remove id because is already present in the URL
-        alert.pop('targets', None)      # Remove target key for avoid 400 Error
+        alert.pop('targets', None)      # Remove target key as described in the api
 
         formatted = {'alert': alert}
         api.setAlert(formatted, id)

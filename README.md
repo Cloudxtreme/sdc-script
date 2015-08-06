@@ -18,7 +18,8 @@ Usage:
     python sdc.py help
 ```
 
-Use the script with your `username` and `password` for run a task with your [Sysdig Cloud](https://sysdig.com/) account
+Use the script with your `username` and `password` for run a task with your [Sysdig Cloud](https://sysdig.com/) account.
+
 List of tasks available:
 
 * `printAccessKey`	Print the access key to stdout
