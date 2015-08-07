@@ -2,17 +2,19 @@ from __future__ import print_function
 import sys
 import sdc
 
-DEFAULT_HOST = 'https://app-staging.sysdigcloud.com/api'
+DEFAULT_HOST = 'https://app.sysdigcloud.com/'
 
 if __name__ == '__main__':
     tasks = ['printAccessKey', 'enableAlerts', 'disableAlerts']
 
-    if len(sys.argv) == 4:
+    if len(sys.argv) >= 4:
         # Task mode
         task = sys.argv[3]
 
+        host = sys.argv[4] if len(sys.argv) == 5 else DEFAULT_HOST
+
         if task in tasks:
-            sdc = sdc.SDC(sys.argv[1], sys.argv[2], host=DEFAULT_HOST)
+            sdc = sdc.SDC(sys.argv[1], sys.argv[2], host=host)
 
             eval('sdc.' + task + '()',
                  {},            # Globals dict arguments for use inside the evaluated function
