@@ -2,7 +2,7 @@ import requests
 import json
 
 
-class Api():
+class Session:
     HEADERS = {'Content-type': 'application/json; charset=UTF-8'}
 
     def __init__(self,
@@ -17,7 +17,7 @@ class Api():
         :return:
         """
         self.host = host
-        self.session = None
+        self.session = requests.Session()
         self.setCredentials(username, password)
 
     def setCredentials(self,
@@ -37,13 +37,12 @@ class Api():
         Open a new session on sysdigcloud
         :return: The request object
         """
-        if self.username and self.password:
+        if self.username and self.password and self.session:
             payload = {'username': self.username, 'password': self.password}
-            ret = requests.post(self.host + '/login',
-                                data=json.dumps(payload),
-                                headers=self.HEADERS)
+            ret = self.session.post(self.host + '/login',
+                                    data=json.dumps(payload),
+                                    headers=self.HEADERS)
             ret.raise_for_status()
-            self.session = ret.cookies
             return ret
         else:
             raise Exception('Credentials not currently set')
@@ -54,7 +53,7 @@ class Api():
         :return: The request object
         """
         if self.session:
-            ret = requests.post(self.host + '/logout', cookies=self.session)
+            ret = self.session.post(self.host + '/logout')
             return ret
         else:
             raise Exception('Session in not currently open')
@@ -65,7 +64,7 @@ class Api():
         :return: List of alerts objects
         """
         if self.session:
-            ret = requests.get(self.host + '/alerts', cookies=self.session)
+            ret = self.session.get(self.host + '/alerts')
             ret.raise_for_status()
             return ret.text
         else:
@@ -79,11 +78,10 @@ class Api():
         :return: The request object
         """
         if self.session:
-            if isinstance(alert, dict):
-                ret = requests.put(self.host + '/alerts/' + str(id),
-                                   headers=self.HEADERS,
-                                   data=json.dumps(alert),
-                                   cookies=self.session)
+            if isinstance(alert, dict) and isinstance(id, int):
+                ret = self.session.put(self.host + '/alerts/' + str(id),
+                                       headers=self.HEADERS,
+                                       data=json.dumps(alert))
                 ret.raise_for_status()
                 return ret
             else:
@@ -98,8 +96,7 @@ class Api():
         :return: The request object
         """
         if self.session:
-            ret = requests.get(self.host + '/user' + user,
-                               cookies=self.session)
+            ret = self.session.get(self.host + '/user' + user)
             ret.raise_for_status()
             return ret.text
         else:

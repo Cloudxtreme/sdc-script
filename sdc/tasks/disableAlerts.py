@@ -2,14 +2,14 @@ from __future__ import print_function
 import json
 
 
-def disableAlerts(api):
+def disableAlerts(auth):
     """
     Disable all the alerts on the host
 
-    :param api: The api object with a session opened
+    :param auth: The api object with a session opened
     :return: The request object
     """
-    alerts = json.loads(api.getAlerts())
+    alerts = json.loads(auth.getAlerts())
     i = 0
     widths = [10, 10, 60, 10]
 
@@ -28,7 +28,7 @@ def disableAlerts(api):
         alert.pop('targets', None)      # Remove target key as described in the api
 
         formatted = {'alert': alert}
-        ret = api.setAlert(formatted, id)
+        auth.setAlert(formatted, id)
 
         props = [str(i + 1), str(id), alert['name'], str(alert['enabled'])]
         printTable(props, widths)

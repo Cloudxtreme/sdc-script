@@ -1,7 +1,7 @@
 from __future__ import print_function
 import sys
 from . import tasks
-from .api import Api
+from .session import Session
 
 DEFAULT_HOST = 'https://app.sysdigcloud.com'
 
@@ -21,15 +21,15 @@ class SDC:
         """
         if not username or not password:
             raise Exception('Username and password are needed for authentication')
-        self.api = Api(host, username, password)
-        self.api.login()
+        self.auth = Session(host, username, password)
+        self.auth.login()
 
     def getAccessKey(self):
         """
         Return the accessKey retrivied from the server
         :return: access key string
         """
-        return tasks.getAccessKey(self.api)
+        return tasks.getAccessKey(self.auth)
 
     def printAccessKey(self):
         """
@@ -41,27 +41,27 @@ class SDC:
         """
         Enable all the alerts on the host
         """
-        tasks.enableAlerts(self.api)
+        tasks.enableAlerts(self.auth)
 
     def disableAlerts(self):
         """
         Disable all the alert on the host
         """
-        tasks.disableAlerts(self.api)
+        tasks.disableAlerts(self.auth)
 
     def logout(self):
         """
         Close the current session on sysdigcloud
         """
-        self.api.logout()
+        self.auth.logout()
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         print('USAGE %s\n' % sys.argv[0])
     else:
-        api = Api(DEFAULT_HOST, username=sys.argv[1], password=sys.argv[2])
-        req = api.login()
-        req = api.getAlerts()
+        auth = Session(DEFAULT_HOST, username=sys.argv[1], password=sys.argv[2])
+        req = auth.login()
+        req = auth.getAlerts()
         print(req.text)
-        req = api.logout()
+        req = auth.logout()
 
