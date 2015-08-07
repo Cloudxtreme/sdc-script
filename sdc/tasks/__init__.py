@@ -1,5 +1,3 @@
-__author__ = 'elia'
-
-from .disableAlerts import disableAlerts
-from .enableAlerts import enableAlerts
-from .getAccessKey import getAccessKey
+from .disableAlerts import *
+from .enableAlerts import *
+from .getAccessKey import *

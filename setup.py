@@ -7,13 +7,13 @@ except ImportError:
 
 setup(
     name='sdc',
-    version='v1.0',
+    version='v1.0.6',
     description='Python library for access the SysdigCloud API',
     author='Draios Inc. (dba Sysdig) <info@sysdig.com>',
     author_email='info@sysdig.com',
     url='https://sysdig.com/',
     test_suite='tests',
-    packages=['sdc'],
+    packages=['sdc', 'sdc.tasks'],
     install_requires=['requests'],
     classifiers=[
         'Operating System :: POSIX',
