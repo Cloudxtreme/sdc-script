@@ -3,10 +3,6 @@ Python SDC Library
 
 Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simple tasks on your host
 
-## Warning
-
-Currently only python3 is supported, future updates will becomes soon
-
 ## USAGE
 
 The python script `sdc.py` provide a command line interface that you can use for simply run a task

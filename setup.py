@@ -15,6 +15,7 @@ setup(
     test_suite='tests',
     packages=['sdc', 'sdc.tasks'],
     install_requires=['requests'],
+    script=['sdc.py'],
     classifiers=[
         'Operating System :: POSIX',
         'Programming Language :: Python',

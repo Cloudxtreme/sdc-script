@@ -1,4 +1,4 @@
-from __future__ import print_function
+#!/usr/bin/env python3
 import sys
 import sdc
 
@@ -8,10 +8,13 @@ if __name__ == '__main__':
     tasks = ['printAccessKey', 'enableAlerts', 'disableAlerts']
 
     if len(sys.argv) >= 4:
-        # Task mode
-        task = sys.argv[3]
 
-        host = sys.argv[4] if len(sys.argv) == 5 else DEFAULT_HOST
+        if len(sys.argv) == 5:
+            host = sys.argv[3]
+            task = sys.argv[4]
+        else:
+            host = DEFAULT_HOST
+            task = sys.argv[3]
 
         if task in tasks:
             sdc = sdc.SDC(sys.argv[1], sys.argv[2], host=host)

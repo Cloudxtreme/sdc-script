@@ -1,5 +1,5 @@
-from __future__ import print_function
 import sys
+from types import MethodType
 from . import tasks
 from .session import Session
 
@@ -10,7 +10,7 @@ class SDC:
     """
         SysdigCloud main class for the sdc library
     """
-    def __init__(self, username, password,
+    def __init__(self, username=None, password=None,
                  host=DEFAULT_HOST):
         """
         Create a new Api instance and open a new session
@@ -19,35 +19,29 @@ class SDC:
         :param password: password on sysdigcloud
         :param host: custom host
         """
-        if not username or not password:
-            raise Exception('Username and password are needed for authentication')
+        for _, function in tasks.__dict__.items():
+            if callable(function):
+                handler = MethodType(function, self)
+                setattr(self.__class__, function.__name__, handler)
+
+        self.username = username
+        self.password = password
+        self.host = host
+        self.auth = None
+
+    def login(self, username=None, password=None, host=None):
+        if username is None:
+            username = self.username
+        if password is None:
+            password = self.password
+        if host is None:
+            host = self.host
+
+        if username is None or password is None:
+            raise Exception('Username and password are required for authentication')
+
         self.auth = Session(host, username, password)
         self.auth.login()
-
-    def getAccessKey(self):
-        """
-        Return the accessKey retrivied from the server
-        :return: access key string
-        """
-        return tasks.getAccessKey(self.auth)
-
-    def printAccessKey(self):
-        """
-        Print the access key to stdout
-        """
-        print('accessKey: ' + self.getAccessKey())
-
-    def enableAlerts(self):
-        """
-        Enable all the alerts on the host
-        """
-        tasks.enableAlerts(self.auth)
-
-    def disableAlerts(self):
-        """
-        Disable all the alert on the host
-        """
-        tasks.disableAlerts(self.auth)
 
     def logout(self):
         """

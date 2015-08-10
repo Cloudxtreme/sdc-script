@@ -1,11 +1,8 @@
-import json
-
-
-def getAccessKey(auth):
+def getAccessKey(self):
     """
     Return the access key for the current user
 
     :param api: The api object with a session opened
     """
-    user = json.loads(auth.getUser('/me'))
+    user = self.getUser('/me')
     return user['user']['accessKey']

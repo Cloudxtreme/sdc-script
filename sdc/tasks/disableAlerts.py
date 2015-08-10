@@ -1,15 +1,16 @@
-from __future__ import print_function
-import json
-
-
-def disableAlerts(auth):
+def disableAlerts(self):
     """
     Disable all the alerts on the host
 
-    :param auth: The api object with a session opened
-    :return: The request object
+    :param auth: The api dictionary with a session opened
+    :return: The request dictionary
     """
-    alerts = json.loads(auth.getAlerts())
+    alerts = self.getAlerts()
+
+    if len(alerts) < 1:
+        print('No alerts available')
+        return
+
     i = 0
     widths = [10, 10, 60, 10]
 
@@ -28,7 +29,7 @@ def disableAlerts(auth):
         alert.pop('targets', None)      # Remove target key as described in the api
 
         formatted = {'alert': alert}
-        auth.setAlert(formatted, id)
+        self.setAlert(formatted, id)
 
         props = [str(i + 1), str(id), alert['name'], str(alert['enabled'])]
         printTable(props, widths)
