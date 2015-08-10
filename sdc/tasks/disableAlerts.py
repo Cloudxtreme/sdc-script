@@ -2,8 +2,7 @@ def disableAlerts(self):
     """
     Disable all the alerts on the host
 
-    :param auth: The api dictionary with a session opened
-    :return: The request dictionary
+    :param self: The SDC instance
     """
     alerts = self.getAlerts()
 

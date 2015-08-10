@@ -4,9 +4,11 @@ import json
 def setAlert(self, alert, id):
     """
     Set a single correctly formatted alerts
-    :param alert: The formatted alert object
+
+    :param self: The SDC instance
+    :param alert: The formatted alert dictionary
     :param id: The alert id
-    :return: The request object
+    :return: The request dictionary
     """
     if self.auth is None:
         raise Exception('Login required')

@@ -4,8 +4,10 @@ import json
 def getUser(self, user):
     """
     Get the user info
-    :param user: Current username
-    :return: The request object
+
+    :param self: The SDC instance
+    :param user: Username
+    :return: The user info dictionary
     """
     if self.auth is None:
         raise Exception('Login required')

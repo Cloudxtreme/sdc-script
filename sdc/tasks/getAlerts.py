@@ -4,6 +4,8 @@ import json
 def getAlerts(self):
     """
     Get the alerts list of sysdigcloud
+
+    :param self: The SDC instance
     :return: List of alerts dictionaries
     """
     if self.auth is None:

@@ -1,5 +1,7 @@
 *.iml
 
+bin/
+
 ## Directory-based project format:
 .idea/
 

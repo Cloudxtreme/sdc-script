@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
-
+import os
+import shutil
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
+
+def copyDir(dir):
+    # Copy the executable script inside a dir
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+    shutil.copy('./sdc.py', dir + '/sdc')
+
+copyDir('./bin')
+
 setup(
     name='sdc',
-    version='v1.0.6',
+    version='v1.0.8',
     description='Python library for access the SysdigCloud API',
     author='Draios Inc. (dba Sysdig) <info@sysdig.com>',
     author_email='info@sysdig.com',
@@ -15,7 +25,7 @@ setup(
     test_suite='tests',
     packages=['sdc', 'sdc.tasks'],
     install_requires=['requests'],
-    script=['sdc.py'],
+    scripts=['bin/sdc'],
     classifiers=[
         'Operating System :: POSIX',
         'Programming Language :: Python',
