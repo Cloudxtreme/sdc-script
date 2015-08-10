@@ -17,7 +17,7 @@ copyDir('./bin')
 
 setup(
     name='sdc',
-    version='v1.0.8',
+    version='v1.0.9',
     description='Python library for access the SysdigCloud API',
     author='Draios Inc. (dba Sysdig) <info@sysdig.com>',
     author_email='info@sysdig.com',

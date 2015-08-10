@@ -50,7 +50,7 @@ elif len(sys.argv) == 3 and sys.argv[1] == 'help':
     else:
         print('Task not found')
 else:
-    print('Usage:\n\t%(arg)s username password [host] task\n\t%(arg)s help task\n\t%(arg)s help' % {'arg': sys.argv[0]})
+    print('Usage:\n\tsdc username password [host] task\n\tsdc help task\n\tsdcs help')
     if len(sys.argv) == 2 and sys.argv[1] == 'help':
         print('\nList of tasks available:\n')
         for task in tasksNames:
