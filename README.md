@@ -42,12 +42,12 @@ In alternative you could use `sdc` python library for create your custom tasks.
 ```python
 import sdc
 
-sdc = sdc.SDC('username', 'password')       # new sdc instance
-sdc.login()                                 # login to your account use the credentials
+session = sdc.SDC('username', 'password')       # new sdc instance
+session.login()                                 # login to your account use the credentials
 
-key = sdc.getAccessKey()                    # retrieve the access key
+key = session.getAccessKey()                    # retrieve the access key
 
 print('My key is: ' + key)
 
-sdc.logout()                                # logout and close the session
+session.logout()                                # logout and close the session
 ```
