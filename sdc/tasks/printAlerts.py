@@ -1,3 +1,5 @@
+import tabulate
+
 def printAlerts(self):
     """
     Print the alerts list to stdout
@@ -6,16 +8,15 @@ def printAlerts(self):
     """
     alerts = self.getAlerts()
 
-    widths = [4, 4, 30, 40, 7]
-    props = ['#', 'id', 'Name', 'When', 'Enabled']
+    props = ['#', 'Id', 'Name', 'Scope', 'When', 'Enabled']
+    table = []
 
     print('Alerts list\n')
-    self._printTable(props, widths)
-    self._printTable(['', '', '', '', ''], widths)
 
     i = 0
     for alert in alerts['alerts']:
         when = alert['type'].capitalize() + ': ' + alert['condition']
-        props = [i + 1, int(alert['id']), alert['name'], when, str(alert['enabled'])]
-        self._printTable(props, widths)
+        filter = alert['filter'] if 'filter' in alert else ''
+        table.append([i + 1, int(alert['id']), alert['name'], filter, when, str(alert['enabled'])])
         i += 1
+    print(tabulate.tabulate(table, props, tablefmt='pipe'))

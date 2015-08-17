@@ -10,14 +10,6 @@ def disableAlerts(self):
         print('No alerts available')
         return
 
-    i = 0
-    widths = [4, 4, 30, 40, 7]
-    props = ['#', 'id', 'Name', 'When', 'Enabled']
-
-    print('Disable all alerts\n')
-    self._printTable(props, widths)
-    self._printTable(['', '', '', ''], widths)
-
     for alert in alerts['alerts']:
         alert['enabled'] = False        # Disable the alert
 
@@ -26,8 +18,5 @@ def disableAlerts(self):
 
         formatted = {'alert': alert}
         self.setAlert(formatted, id)
-        when = alert['type'].capitalize() + ': ' + alert['condition']
 
-        props = [i + 1, int(id), alert['name'], when, str(alert['enabled'])]
-        self._printTable(props, widths)
-        i += 1
+    self.printAlerts()                  # print all alerts
