@@ -3,12 +3,17 @@ Sysdig Cloud scripting library
 
 Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simple tasks on your host.
 
+
 ## Requirements
 
-The python library currently requires the requests library installed in your python environment. 
+The only requirement is Python 3.x.
+
+Make sure to have Python installed on your machine. You can install it with the following command:
+
 ```
-sudo python3 setup.py install
+~$ sudo python3 setup.py install
 ```
+
 
 ## Usage
 
@@ -30,7 +35,8 @@ By default the script will execute against the SaaS application at https://app.s
 ~$ sdc <username> <password> --server=http://my-local-sdc
 ```
 
-## Tasks
+
+### Tasks
 
 On the command line you can specify one of the available tasks. To do so, simply specify the task name and parameters when required. For example:
 
@@ -56,7 +62,8 @@ You can access further documentation by running the following command:
 ~$ sdc help <task name>
 ```
 
-## Custom scripts
+
+### Custom scripts
 
 The scripting library can be embedded in your custom scripts. Here is an example:
 
