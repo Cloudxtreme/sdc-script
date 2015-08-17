@@ -14,16 +14,16 @@ Python 3.x. That's all!
 
 ```
 # Clone
-~$ git clone git@github.com:draios/sdc-script.git
+git clone git@github.com:draios/sdc-script.git
 
 # Enter
-~$ cd sdc-script
+cd sdc-script
 
 # Install
-~$ sudo python3 setup.py install
+sudo python3 setup.py install
 
 # Verify
-~$ sdc
+sdc
 
 # ... and you're ready to go!
 ```
@@ -33,22 +33,16 @@ Make sure to re-install the library after you checkout the latest version of the
 
 ## Usage
 
-From the command line run the Python executable:
+Use your Sysdig Cloud credentials that you would use with the [web application](https://app.sysdigcloud.com).
 
 ```
-~$ sdc
-```
-
-You should specify your Sysdig Cloud credentials that you would use with the [web application](https://app.sysdigcloud.com/).
-
-```
-~$ sdc <username> <password>
+sdc <username> <password>
 ```
 
 By default the script will execute against the SaaS application at https://app.sysdigcloud.com. If you are using the on-premise version, you can specify your Sysdig Cloud server as follows:
 
 ```
-~$ sdc <username> <password> --server=http://my-local-sdc
+sdc <username> <password> --server=http://my-local-sdc
 ```
 
 
@@ -57,7 +51,7 @@ By default the script will execute against the SaaS application at https://app.s
 On the command line you can specify one of the available tasks. To do so, simply specify the task name and parameters when required. For example:
 
 ```
-~$ sdc <username> <password> printAccessKey
+sdc <username> <password> printAccessKey
 ```
 
 Here is the list of tasks currently available:
@@ -75,7 +69,7 @@ Here is the list of tasks currently available:
 You can access further documentation by running the following command:
 
 ```
-~$ sdc help <task name>
+sdc help <task name>
 ```
 
 
