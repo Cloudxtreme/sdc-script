@@ -33,7 +33,7 @@ Make sure to re-install the library after you checkout the latest version of the
 
 ## Usage
 
-Use your Sysdig Cloud credentials that you would use with the [web application](https://www.app.sysdigcloud.com/).
+Use your Sysdig Cloud credentials that you would use with the [web application](https://app.sysdigcloud.com).
 
 ```
 sdc <username> <password>
