@@ -23,7 +23,7 @@ Usage:
 
 Use the script with your `username` and `password` for run a task on your [Sysdig Cloud](https://sysdig.com/) account.
 The default host is `https://app.sysdigcloud.com/` , but you can specify a custom server using `--server=custom_server`. 
-Pay attention to use the correct url with an `https://` connection for avoid errors.
+Pay attention to use an `https://` connection for avoid errors, in alternative specify only the address `--server=app.sysdigcloud.com`.
 
 List of tasks available:
 
