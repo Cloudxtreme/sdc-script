@@ -39,7 +39,7 @@ In alternative you could use `sdc` python library for create your custom tasks.
 
 ## Example
 
-```python
+```
 import sdc
 
 session = sdc.SDC('username', 'password')       # new sdc instance
