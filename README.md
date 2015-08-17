@@ -39,7 +39,7 @@ From the command line run the Python executable:
 ~$ sdc
 ```
 
-You should specify your Sysdig Cloud credentials that you would use with the [web application](https://www.app.sysdigcloud.com/).
+You should specify your Sysdig Cloud credentials that you would use with the [web application](https://app.sysdigcloud.com/).
 
 ```
 ~$ sdc <username> <password>
