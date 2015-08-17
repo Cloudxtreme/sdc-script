@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import sys
 import sdc
 
@@ -20,19 +21,20 @@ tasks = [f for _, f in sdc.tasks.__dict__.items() if callable(f)]
 tasksNames = [t.__name__ for t in tasks]
 
 if len(sys.argv) >= 4:
+    parser = argparse.ArgumentParser(description='Sysdigcloud command line script')
+    parser.add_argument('-s', '--server',
+                        help='Sysdigcloud server',
+                        default=DEFAULT_HOST)
+    parser.add_argument('username', type=str, help='Sysdigcloud username')
+    parser.add_argument('password', type=str, help='Sysdigcloud username')
+    parser.add_argument('task', type=str, help='Task to perform')
+    args = parser.parse_args()
 
-    if len(sys.argv) == 5:
-        host = sys.argv[3]
-        task = sys.argv[4]
-    else:
-        host = DEFAULT_HOST
-        task = sys.argv[3]
-
-    if task in tasksNames:
-        session = sdc.SDC(sys.argv[1], sys.argv[2], host=host)
+    if args.task in tasksNames:
+        session = sdc.SDC(args.username, args.password, host=args.server)
         session.login()
 
-        eval('session.' + task + '()',
+        eval('session.' + args.task + '()',
              {},            # Globals dict arguments for use inside the evaluated function
              {'session': session})  # sdc instance for use the API
 
