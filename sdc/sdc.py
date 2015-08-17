@@ -49,6 +49,19 @@ class SDC:
         """
         self.auth.logout()
 
+    def _printTable(self, props, widths):
+        """
+        Print a table with 4 props
+        :param props: properties to print []
+        :param widths: widths for each column []
+        """
+        for i, prop in enumerate(props):
+            if isinstance(prop, str):
+                # string formatting
+                props[i] = prop if len(prop) <= widths[i] else prop[:widths[i] - 3] + '...'
+        print('| ' + ' | '.join('{:{}}'.format(x, widths[i])
+                                for i, x in enumerate(props)) + ' |')
+
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         print('USAGE %s\n' % sys.argv[0])

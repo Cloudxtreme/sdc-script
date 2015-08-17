@@ -11,15 +11,12 @@ def disableAlerts(self):
         return
 
     i = 0
-    widths = [10, 10, 60, 10]
-
-    printTable = lambda a, w: print('| ' + ' | '.join('{:{}}'.format(x, w[i])
-                                    for i, x in enumerate(a)) + ' |')
+    widths = [4, 4, 30, 40, 7]
+    props = ['#', 'id', 'Name', 'When', 'Enabled']
 
     print('Disable all alerts\n')
-    props = ['#', 'id', 'alert name', 'enabled']
-    printTable(props, widths)
-    printTable(['', '', '', ''], widths)
+    self._printTable(props, widths)
+    self._printTable(['', '', '', ''], widths)
 
     for alert in alerts['alerts']:
         alert['enabled'] = False        # Disable the alert
@@ -29,8 +26,8 @@ def disableAlerts(self):
 
         formatted = {'alert': alert}
         self.setAlert(formatted, id)
+        when = alert['type'].capitalize() + ': ' + alert['condition']
 
-        props = [str(i + 1), str(id), alert['name'], str(alert['enabled'])]
-        printTable(props, widths)
-
+        props = [i + 1, int(id), alert['name'], when, str(alert['enabled'])]
+        self._printTable(props, widths)
         i += 1
