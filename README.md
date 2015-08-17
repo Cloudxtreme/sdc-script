@@ -10,13 +10,17 @@ Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simp
 
 Python 3.x. That's all!
 
-### Install the library
-
-It is suggested to install the library first. To do so, execute the following command:
+### Setup the environment
 
 ```
+# Clone the repository
+~$ git clone git@github.com:draios/sdc-script.git
+
+# Install the library
 ~$ sudo python3 setup.py install
 ```
+
+Make sure to re-install the library after you checkout the latest version of the library!
 
 
 ## Usage
