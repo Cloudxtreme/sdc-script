@@ -7,6 +7,6 @@ def printAccessKey(self):
     user = self.getUser('/me')
     key = user['user']['accessKey']
     if key:
-        print('accessKey: ' + key)
+        print(key+'\n')
     else:
         print('No access key available')
