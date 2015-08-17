@@ -12,42 +12,62 @@ sudo python3 setup.py install
 
 ## Usage
 
-The python executable script `sdc` provide a command line interface that you can use for simply run a task
+From the command line run the Python executable:
 
 ```
-Usage:
-    sdc username password task --server=server
-    sdc help task
-    sdc help
+~$ sdc
 ```
 
-Use the script with your `username` and `password` for run a task on your [Sysdig Cloud](https://sysdig.com/) account.
-The default host is `https://app.sysdigcloud.com/` , but you can specify a custom server using `--server=custom_server`. 
-Pay attention to use an `https://` connection for avoid errors, in alternative specify only the address `--server=app.sysdigcloud.com`.
+You should specify your Sysdig Cloud credentials that you would use with the [web application](https://www.app.sysdigcloud.com/).
 
-List of tasks available:
+```
+~$ sdc <username> <password>
+```
 
-* getUser                       Get the user info             
-* getAccessKey                  Return the access key for the current user
-* printAccessKey                Print the access key to stdout
-* getAlerts                     Get the alerts list of sysdigcloud
-* disableAlerts                 Disable all the alerts on the host
-* enableAlerts                  Enable all the alerts on the host
-* setAlert                      Set a single correctly formatted alerts
+By default the script will execute against the SaaS application at https://app.sysdigcloud.com. If you are using the on-premise version, you can specify your Sysdig Cloud server as follows:
 
-In alternative you could use `sdc` python library for create your custom tasks.
+```
+~$ sdc <username> <password> --server=http://my-local-sdc
+```
 
-## Example
+## Tasks
 
-```python
+On the command line you can specify one of the available tasks. To do so, simply specify the task name and parameters when required. For example:
+
+```
+~$ sdc <username> <password> printAccessKey
+```
+
+Here is the list of tasks currently available:
+
+* getUser          Get the user info             
+* getAccessKey     Return the access key for the current user
+* printAccessKey   Print the access key to stdout
+* getAlerts        Get the alerts list of sysdigcloud
+* disableAlerts    Disable all the alerts on the host
+* enableAlerts     Enable all the alerts on the host
+* setAlert         Set a single correctly formatted alerts
+
+You can access further documentation by running the following command:
+
+```
+~$ sdc help <task name>
+```
+
+## Custom scripts
+
+The scripting library can be embedded in your custom scripts. Here is an example:
+
+```
+python
 import sdc
 
-session = sdc.SDC('username', 'password')       # new sdc instance
-session.login()                                 # login to your account use the credentials
+session = sdc.SDC('username', 'password')   # Sysdig Cloud library instance
+session.login()                             # Login to the SDC server
 
-key = session.getAccessKey()                    # retrieve the access key
+key = session.getAccessKey()                # Execute a task (e.g. to get the access key)
 
 print('My key is: ' + key)
 
-session.logout()                                # logout and close the session
+session.logout()                            # Make sure to logout before terminate the execution!
 ```
