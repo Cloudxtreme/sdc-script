@@ -68,22 +68,3 @@ You can access further documentation by running the following command:
 ```
 sdc help <task name>
 ```
-
-
-### Custom scripts
-
-The scripting library can be embedded in your custom scripts. Here is an example:
-
-```
-python
-import sdc
-
-session = sdc.SDC('username', 'password')   # Sysdig Cloud library instance
-session.login()                             # Login to the SDC server
-
-key = session.getAccessKey()                # Execute a task (e.g. to get the access key)
-
-print('My key is: ' + key)
-
-session.logout()                            # Make sure to logout before terminate the execution!
-```
