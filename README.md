@@ -27,9 +27,8 @@ Pay attention to use an `https://` connection for avoid errors, in alternative s
 
 List of tasks available:
 
-* getUser                       Get the user info             
-* getAccessKey                  Return the access key for the current user
-* printAccessKey                Print the access key to stdout
+* getUser                       Get the user info
+* printAccessKey                Print the user access key to stdout
 * getAlerts                     Get the alerts list of sysdigcloud
 * disableAlerts                 Disable all the alerts on the host
 * enableAlerts                  Enable all the alerts on the host

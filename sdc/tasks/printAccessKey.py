@@ -4,7 +4,8 @@ def printAccessKey(self):
 
     :param self: The SDC instance
     """
-    key = self.getAccessKey()
+    user = self.getUser('/me')
+    key = user['user']['accessKey']
     if key:
         print('accessKey: ' + key)
     else:
