@@ -16,13 +16,13 @@ The python executable script `sdc` provide a command line interface that you can
 
 ```
 Usage:
-    sdc username password [host] task
+    sdc username password task --server=server
     sdc help task
     sdc help
 ```
 
 Use the script with your `username` and `password` for run a task on your [Sysdig Cloud](https://sysdig.com/) account.
-The default host is `https://app.sysdigcloud.com/` , but you can specify a custom host. 
+The default host is `https://app.sysdigcloud.com/` , but you can specify a custom server using `--server=custom_server`. 
 Pay attention to use the correct url with an `https://` connection for avoid errors.
 
 List of tasks available:

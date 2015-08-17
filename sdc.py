@@ -6,11 +6,11 @@ import sdc
 """
 SDC command line utility for easily run a task on your sysdigcloud account.
 The script needs an username and a password for login inside your account.
-You can also specify a custom host address.
+You can also specify a custom server address using --server.
 Run the help for the a list of current supported tasks.
 
 Usage:
-    sdc username password [host] task
+    sdc username password task --server=server
     sdc help task
     sdc help
 """
@@ -52,7 +52,7 @@ elif len(sys.argv) == 3 and sys.argv[1] == 'help':
     else:
         print('Task not found')
 else:
-    print('Usage:\n\tsdc username password [host] task\n\tsdc help task\n\tsdcs help')
+    print('Usage:\n\tsdc username password task --server=server\n\tsdc help task\n\tsdcs help')
     if len(sys.argv) == 2 and sys.argv[1] == 'help':
         print('\nList of tasks available:\n')
         for task in tasksNames:
