@@ -3,17 +3,30 @@ import argparse
 import sys
 import sdc
 
-"""
-SDC command line utility for easily run a task on your sysdigcloud account.
-The script needs an username and a password for login inside your account.
-You can also specify a custom server address using --server.
-Run the help for the a list of current supported tasks.
+__doc__ = '''Sysdig Cloud scripting library (python)
 
-Usage:
-    sdc username password task --server=server
-    sdc help task
-    sdc help
-"""
+Usage: sdc <username> <password> [--server=https://my-local-sdc] <task name> [task parameters]
+
+Example: sdc <username> <password> printAccessKey
+
+
+Notes:
+<username> and <password> are your Sysdig Cloud credentials.
+
+If you don't specify a server, the script will use the SaaS server at https://app.sysdigcloud.com.
+
+
+Tasks:
+
+* printAccessKey   Print the access key to stdout
+* printAlerts      Print the alerts list to stdout
+* disableAlerts    Disable all the alerts on the host
+* enableAlerts     Enable all the alerts on the host
+
+Run sdc help <task name> for further information.
+
+
+For more information and examples, refer to the online documentation at https://github.com/draios/sdc-script.'''
 
 DEFAULT_HOST = 'https://app.sysdigcloud.com/'
 
@@ -26,7 +39,7 @@ if len(sys.argv) >= 4:
                         help='Sysdigcloud server',
                         default=DEFAULT_HOST)
     parser.add_argument('username', type=str, help='Sysdigcloud username')
-    parser.add_argument('password', type=str, help='Sysdigcloud username')
+    parser.add_argument('password', type=str, help='Sysdigcloud password')
     parser.add_argument('task', type=str, help='Task to perform')
     args = parser.parse_args()
 
@@ -44,8 +57,7 @@ if len(sys.argv) >= 4:
 
         session.logout()
     else:
-        # Print a documentation message
-        print('Currently supported tasks: ' + (', '.join(tasksNames)))
+        print(__doc__)
 elif len(sys.argv) == 3 and sys.argv[1] == 'help':
     # Help mode
     task = sys.argv[2]
@@ -56,10 +68,4 @@ elif len(sys.argv) == 3 and sys.argv[1] == 'help':
     else:
         print('Task not found')
 else:
-    print('Usage:\n\tsdc username password task --server=server\n\tsdc help task\n\tsdc help')
-    if len(sys.argv) == 2 and sys.argv[1] == 'help':
-        print('\nList of tasks available:\n')
-        for task in tasksNames:
-            index = tasksNames.index(task)
-            doc = tasks[index].__doc__.strip().split('\n', 1)[0]
-            print(''.join('{:{}}'.format(x, 30) for _, x in enumerate([task, doc])))
+    print(__doc__)

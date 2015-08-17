@@ -42,7 +42,7 @@ sdc <username> <password>
 By default the script will execute against the SaaS application at https://app.sysdigcloud.com. If you are using the on-premise version, you can specify your Sysdig Cloud server as follows:
 
 ```
-sdc <username> <password> --server=http://my-local-sdc
+sdc <username> <password> --server=https://my-local-sdc
 ```
 
 
