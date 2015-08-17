@@ -17,14 +17,14 @@ copyDir('./bin')
 
 setup(
     name='sdc',
-    version='v1.0.12',
+    version='v1.0.13',
     description='Python library for access the SysdigCloud API',
     author='Draios Inc. (dba Sysdig) <info@sysdig.com>',
     author_email='info@sysdig.com',
     url='https://sysdig.com/',
     test_suite='tests',
     packages=['sdc', 'sdc.tasks'],
-    install_requires=['requests'],
+    install_requires=['requests', 'tabulate'],
     scripts=['bin/sdc'],
     classifiers=[
         'Operating System :: POSIX',
