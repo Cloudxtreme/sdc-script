@@ -4,11 +4,15 @@ Sysdig Cloud scripting library
 Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simple tasks on your host.
 
 
-## Requirements
+## Getting started
 
-The only requirement is Python 3.x.
+### Requirements
 
-Make sure to have Python installed on your machine. You can install it with the following command:
+Python 3.x. That's all!
+
+### Install the library
+
+It is suggested to install the library first. To do so, execute the following command:
 
 ```
 ~$ sudo python3 setup.py install
