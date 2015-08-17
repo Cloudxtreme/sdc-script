@@ -60,6 +60,7 @@ Here is the list of tasks currently available:
 * getUser          Get the user info             
 * getAccessKey     Return the access key for the current user
 * printAccessKey   Print the access key to stdout
+* printAlerts      Print the alerts list to stdout
 * getAlerts        Get the alerts list of sysdigcloud
 * disableAlerts    Disable all the alerts on the host
 * enableAlerts     Enable all the alerts on the host
