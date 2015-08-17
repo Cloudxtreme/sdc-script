@@ -40,6 +40,7 @@ On the command line you can specify one of the available tasks. To do so, simply
 
 Here is the list of tasks currently available:
 
+```
 * getUser          Get the user info             
 * getAccessKey     Return the access key for the current user
 * printAccessKey   Print the access key to stdout
@@ -47,6 +48,7 @@ Here is the list of tasks currently available:
 * disableAlerts    Disable all the alerts on the host
 * enableAlerts     Enable all the alerts on the host
 * setAlert         Set a single correctly formatted alerts
+```
 
 You can access further documentation by running the following command:
 
