@@ -13,14 +13,19 @@ Python 3.x. That's all!
 ### Setup the environment
 
 ```
-# Clone the repository
+# Clone
 ~$ git clone git@github.com:draios/sdc-script.git
 
-# Enter the library folder
+# Enter
 ~$ cd sdc-script
 
-# Install the library
+# Install
 ~$ sudo python3 setup.py install
+
+# Verify
+~$ sdc
+
+# ... and you're ready to go!
 ```
 
 Make sure to re-install the library after you checkout the latest version of the library!
