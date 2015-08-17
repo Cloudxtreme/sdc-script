@@ -8,7 +8,7 @@ Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simp
 
 ### Requirements
 
-Python 3.x. That's all!
+Python 3.x and pip3. That's all!
 
 ### Setup the environment
 
@@ -20,7 +20,7 @@ git clone git@github.com:draios/sdc-script.git
 cd sdc-script
 
 # Install
-sudo python3 setup.py install
+sudo pip3 install -r requirements.txt
 
 # Verify
 sdc
