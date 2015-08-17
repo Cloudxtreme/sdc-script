@@ -30,6 +30,10 @@ if len(sys.argv) >= 4:
     parser.add_argument('task', type=str, help='Task to perform')
     args = parser.parse_args()
 
+    if not args.server.startswith('http'):
+        args.server = 'https://' + args.server
+    args.server += '/api'
+
     if args.task in tasksNames:
         session = sdc.SDC(args.username, args.password, host=args.server)
         session.login()
@@ -52,7 +56,7 @@ elif len(sys.argv) == 3 and sys.argv[1] == 'help':
     else:
         print('Task not found')
 else:
-    print('Usage:\n\tsdc username password task --server=server\n\tsdc help task\n\tsdcs help')
+    print('Usage:\n\tsdc username password task --server=server\n\tsdc help task\n\tsdc help')
     if len(sys.argv) == 2 and sys.argv[1] == 'help':
         print('\nList of tasks available:\n')
         for task in tasksNames:
