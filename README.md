@@ -8,7 +8,7 @@ Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simp
 
 ### Requirements
 
-Python 3.x. That's all!
+Python 3.x and pip3. That's all!
 
 ### Setup the environment
 
@@ -20,7 +20,7 @@ git clone git@github.com:draios/sdc-script.git
 cd sdc-script
 
 # Install
-sudo python3 setup.py install
+sudo pip3 install -r requirements.txt
 
 # Verify
 sdc
@@ -57,37 +57,14 @@ sdc <username> <password> printAccessKey
 Here is the list of tasks currently available:
 
 ```
-* getUser          Get the user info             
-* getAccessKey     Return the access key for the current user
 * printAccessKey   Print the access key to stdout
-* printAlerts      Print the alerts list to stdout
-* getAlerts        Get the alerts list of sysdigcloud
-* disableAlerts    Disable all the alerts on the host
-* enableAlerts     Enable all the alerts on the host
-* setAlert         Set a single correctly formatted alerts
+* printAlerts      Print the alert list to stdout
+* disableAlerts    Disable alerts
+* enableAlerts     Enable alerts
 ```
 
 You can access further documentation by running the following command:
 
 ```
 sdc help <task name>
-```
-
-
-### Custom scripts
-
-The scripting library can be embedded in your custom scripts. Here is an example:
-
-```
-python
-import sdc
-
-session = sdc.SDC('username', 'password')   # Sysdig Cloud library instance
-session.login()                             # Login to the SDC server
-
-key = session.getAccessKey()                # Execute a task (e.g. to get the access key)
-
-print('My key is: ' + key)
-
-session.logout()                            # Make sure to logout before terminate the execution!
 ```
