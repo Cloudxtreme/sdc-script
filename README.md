@@ -28,12 +28,14 @@ sdc
 # ... and you're ready to go!
 ```
 
-In alternative, you can also install dependencies using `pip`
+Make sure to re-install the library after you checkout the latest version!
+
+
+Alternatively, you can use pip to install dependencies:
+
 ```
 pip3 install -r requirements.txt
 ```
-
-Make sure to re-install the library after you checkout the latest version!
 
 
 ## Usage
