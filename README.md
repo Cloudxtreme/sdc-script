@@ -1,8 +1,7 @@
-Sysdig Cloud scripting library
+Sysdig Cloud Scripting Library
 ===================
 
-Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simple tasks on your host.
-
+The Sysdig Cloud Scripting Library is a python based library that utilizes the [Sysdig Cloud](https://sysdig.com/) API to run simple tasks on your Sysdig Cloud agent enabled host.
 
 ## Getting started
 
