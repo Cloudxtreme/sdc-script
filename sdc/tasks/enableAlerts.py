@@ -10,8 +10,6 @@ def enableAlerts(self):
         print('No alerts available')
         return
 
-    print('Enable all alerts\n')
-
     for alert in alerts['alerts']:
         alert['enabled'] = True         # Enable the alert
 

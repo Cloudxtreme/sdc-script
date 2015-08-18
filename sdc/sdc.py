@@ -3,7 +3,7 @@ from types import MethodType
 from . import tasks
 from .session import Session
 
-DEFAULT_HOST = 'https://app.sysdigcloud.com'
+DEFAULT_SERVER = 'https://app.sysdigcloud.com'
 
 
 class SDC:
@@ -11,7 +11,7 @@ class SDC:
         SysdigCloud main class for the sdc library
     """
     def __init__(self, username=None, password=None,
-                 host=DEFAULT_HOST):
+                 server=DEFAULT_SERVER):
         """
         Create a new Api instance and open a new session
 
@@ -26,21 +26,26 @@ class SDC:
 
         self.username = username
         self.password = password
-        self.host = host
+        self.server = server
         self.auth = None
 
-    def login(self, username=None, password=None, host=None):
+    def login(self, username=None, password=None, server=None):
         if username is None:
             username = self.username
         if password is None:
             password = self.password
-        if host is None:
-            host = self.host
+        if server is None:
+            server = self.server
+
+        if not server.startswith('http'):
+            # add https if not present
+            server = 'https://' + server
+        server += '/api'    # api endpoint
 
         if username is None or password is None:
             raise Exception('Username and password are required for authentication')
 
-        self.auth = Session(host, username, password)
+        self.auth = Session(server, username, password)
         self.auth.login()
 
     def logout(self):

@@ -28,7 +28,7 @@ Run sdc help <task name> for further information.
 
 For more information and examples, refer to the online documentation at https://github.com/draios/sdc-script.'''
 
-DEFAULT_HOST = 'https://app.sysdigcloud.com/'
+DEFAULT_SERVER = 'https://app.sysdigcloud.com/'
 
 tasks = [f for _, f in sdc.tasks.__dict__.items() if callable(f)]
 tasksNames = [t.__name__ for t in tasks]
@@ -37,18 +37,14 @@ if len(sys.argv) >= 4:
     parser = argparse.ArgumentParser(description='Sysdigcloud command line script')
     parser.add_argument('-s', '--server',
                         help='Sysdigcloud server',
-                        default=DEFAULT_HOST)
+                        default=DEFAULT_SERVER)
     parser.add_argument('username', type=str, help='Sysdigcloud username')
     parser.add_argument('password', type=str, help='Sysdigcloud password')
     parser.add_argument('task', type=str, help='Task to perform')
     args = parser.parse_args()
 
-    if not args.server.startswith('http'):
-        args.server = 'https://' + args.server
-    args.server += '/api'
-
     if args.task in tasksNames:
-        session = sdc.SDC(args.username, args.password, host=args.server)
+        session = sdc.SDC(args.username, args.password, server=args.server)
         session.login()
 
         eval('session.' + args.task + '()',
