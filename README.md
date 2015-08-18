@@ -16,11 +16,11 @@ Python 3.x and pip3. That's all!
 # Clone
 git clone git@github.com:draios/sdc-script.git
 
-# Enter
+# Enter Folder
 cd sdc-script
 
 # Install
-sudo pip3 install -r requirements.txt
+python3 setup.py install
 
 # Verify
 sdc
@@ -28,7 +28,12 @@ sdc
 # ... and you're ready to go!
 ```
 
-Make sure to re-install the library after you checkout the latest version of the library!
+In alternative, you can also install dependencies using `pip`
+```
+pip3 install -r requirements.txt
+```
+
+Make sure to re-install the library after you checkout the latest version!
 
 
 ## Usage
