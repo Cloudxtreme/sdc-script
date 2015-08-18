@@ -20,7 +20,7 @@ git clone git@github.com:draios/sdc-script.git
 cd sdc-script
 
 # Install
-python3 setup.py install
+sudo python3 setup.py install
 
 # Verify
 sdc
