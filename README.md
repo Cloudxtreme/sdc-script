@@ -13,10 +13,10 @@ Python 3.x. That's all!
 ### Setup the environment
 
 ```
-# Clone
+# Clone the repository
 git clone git@github.com:draios/sdc-script.git
 
-# Enter Folder
+# Enter the folder
 cd sdc-script
 
 # Install
