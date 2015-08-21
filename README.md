@@ -1,26 +1,25 @@
-Sysdig Cloud scripting library
+Sysdig Cloud Scripting Library
 ===================
 
-Python library that use the [Sysdig Cloud](https://sysdig.com/) API for run simple tasks on your host.
-
+The Sysdig Cloud Scripting Library is a python based library that utilizes the [Sysdig Cloud](https://sysdig.com/) API to run simple tasks on your Sysdig Cloud agent enabled host.
 
 ## Getting started
 
 ### Requirements
 
-Python 3.x and pip3. That's all!
+Python 3.x. That's all!
 
 ### Setup the environment
 
 ```
-# Clone
+# Clone the repository
 git clone git@github.com:draios/sdc-script.git
 
-# Enter Folder
+# Enter the folder
 cd sdc-script
 
 # Install
-python3 setup.py install
+sudo python3 setup.py install
 
 # Verify
 sdc
@@ -28,12 +27,14 @@ sdc
 # ... and you're ready to go!
 ```
 
-In alternative, you can also install dependencies using `pip`
+Make sure to re-install the library after you checkout the latest version!
+
+
+Alternatively, you can use pip to install dependencies:
+
 ```
 pip3 install -r requirements.txt
 ```
-
-Make sure to re-install the library after you checkout the latest version!
 
 
 ## Usage
