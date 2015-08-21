@@ -28,7 +28,7 @@ Run sdc help <task name> for further information.
 
 For more information and examples, refer to the online documentation at https://github.com/draios/sdc-script.'''
 
-DEFAULT_SERVER = 'https://app.sysdigcloud.com/'
+DEFAULT_SERVER = 'https://app.sysdigcloud.com'
 
 tasks = [f for _, f in sdc.tasks.__dict__.items() if callable(f)]
 tasksNames = [t.__name__ for t in tasks]

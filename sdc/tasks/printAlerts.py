@@ -13,7 +13,10 @@ def printAlerts(self):
 
     i = 0
     for alert in alerts['alerts']:
-        when = alert['type'].capitalize() + ': ' + alert['condition']
+        print(alert)
+        when = alert['type'].capitalize() + ': '
+        if 'condition' in alert:
+            when += alert['condition']
         filter = alert['filter'] if 'filter' in alert else ''
         table.append([i + 1, str(alert['id']), alert['name'], filter, when, str(alert['enabled'])])
         i += 1

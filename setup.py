@@ -17,7 +17,7 @@ copyDir('./bin')
 
 setup(
     name='sdc',
-    version='v1.0.15',
+    version='v1.0.16',
     description='Python library for access the SysdigCloud API',
     author='Draios Inc. (dba Sysdig) <info@sysdig.com>',
     author_email='info@sysdig.com',
@@ -29,8 +29,6 @@ setup(
     classifiers=[
         'Operating System :: POSIX',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',

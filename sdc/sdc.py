@@ -1,4 +1,3 @@
-import sys
 from types import MethodType
 from . import tasks
 from .session import Session
@@ -66,14 +65,3 @@ class SDC:
                 props[i] = prop if len(prop) <= widths[i] else prop[:widths[i] - 3] + '...'
         print('| ' + ' | '.join('{:{}}'.format(x, widths[i])
                                 for i, x in enumerate(props)) + ' |')
-
-if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print('USAGE %s\n' % sys.argv[0])
-    else:
-        auth = Session(DEFAULT_HOST, username=sys.argv[1], password=sys.argv[2])
-        req = auth.login()
-        req = auth.getAlerts()
-        print(req.text)
-        req = auth.logout()
-
