@@ -13,7 +13,6 @@ def printAlerts(self):
 
     i = 0
     for alert in alerts['alerts']:
-        print(alert)
         when = alert['type'].capitalize() + ': '
         if 'condition' in alert:
             when += alert['condition']
