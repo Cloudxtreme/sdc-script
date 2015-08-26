@@ -29,7 +29,7 @@ sudo apt-get install python3-pip
 sudo pip3 install -r requirements.txt
 ```
 
-Now verify everything is installed and working with:
+Now verify everything is working with:
 ```
 sdc
 ```
