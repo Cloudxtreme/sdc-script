@@ -1,7 +1,7 @@
 Sysdig Cloud Scripting Library
 ===================
 
-The Sysdig Cloud Scripting Library is a python based library that utilizes the Sysdig Cloud API to perform useful tasks on your Sysdig Cloud agent enabled host. Use the scripts from the the Linux shell to control certain features such as alerting or to access information from your Sysdig Cloud account such as your access key number. 
+The Sysdig Cloud Scripting Library is a python based library that utilizes the Sysdig Cloud API to perform useful tasks on your Sysdig Cloud agent enabled host. Use the scripts from the Linux shell to control certain features such as alerting or to access information from your Sysdig Cloud account such as your access key number. 
 
 The library will be continually updated and expanded with new commands over time
 
