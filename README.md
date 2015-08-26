@@ -57,13 +57,7 @@ sdc <username> <password> --server=https://my-local-sdc-svr <task>
 
 ### Tasks
 
-On the command line you can specify one of the available tasks. To do so, simply specify the task name and parameters when required. For example:
-
-```
-sdc <username> <password> printAccessKey
-```
-
-Here is the list of tasks currently available:
+On the command line, issue any of the available tasks below. Simply specify the task name and parameters required after the sdc command and your credentials. Here is the list of tasks currently available:
 
 ```
 * printAccessKey   Print the access key to stdout
