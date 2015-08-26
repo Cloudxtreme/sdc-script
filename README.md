@@ -1,56 +1,59 @@
 Sysdig Cloud Scripting Library
 ===================
 
-The Sysdig Cloud Scripting Library is a python based library that utilizes the [Sysdig Cloud](https://sysdig.com/) API to run simple tasks on your Sysdig Cloud agent enabled host.
+The Sysdig Cloud Scripting Library is a python based library that utilizes the Sysdig Cloud API to perform useful tasks on your Sysdig Cloud agent enabled host. Use the scripts from the the Linux shell to control certain features such as alerting or to access information from your Sysdig Cloud account such as your access key number. 
 
-## Getting started
+The library will be continually updated and expanded with new commands over time
 
 ### Requirements
 
-Python 3.x. That's all!
+To use the Sysdig Cloud Scripting Library your host needs Python 3.x installed. To setup the environment you will need git and pip3 installed as well.
 
-### Setup the environment
+###Setup Your Environment
 
+Install git and clone the script repository:
 ```
-# Clone the repository
-git clone git@github.com:draios/sdc-script.git
+sudo apt-get install git
+sudo git clone git@github.com:draios/sdc-script.git
+```
 
-# Enter the folder
+Enter the scripting folder and install the environment:
+```
 cd sdc-script
-
-# Install
 sudo python3 setup.py install
-
-# Verify
-sdc
-
-# ... and you're ready to go!
 ```
+
+Install additional dependencies via pip3
+```
+sudo apt-get install python3-pip
+sudo pip3 install -r requirements.txt
+```
+
+Now verify everything is installed and working with:
+```
+sdc
+```
+
+You should see Sysdig Cloud scripting library usage information.
 
 Make sure to re-install the library after you checkout the latest version!
 
 
-Alternatively, you can use pip to install dependencies:
+### Usage
 
+Use your Sysdig Cloud credentials that you would with the web application in the following format for each task:
 ```
-pip3 install -r requirements.txt
+sdc <username> <password> <task>
 ```
-
-
-## Usage
-
-Use your Sysdig Cloud credentials that you would use with the [web application](https://app.sysdigcloud.com).
-
+Example:
 ```
-sdc <username> <password>
+sdc joe@sysdig.com  mypasswd  printAccessKey
 ```
 
-By default the script will execute against the SaaS application at https://app.sysdigcloud.com. If you are using the on-premise version, you can specify your Sysdig Cloud server as follows:
-
+By default the script will execute against the SaaS application at https://app.sysdigcloud.com. If you are using the on-premises version, you can specify your Sysdig Cloud server as follows:
 ```
-sdc <username> <password> --server=https://my-local-sdc
+sdc <username> <password> --server=https://my-local-sdc-svr <task>
 ```
-
 
 ### Tasks
 
