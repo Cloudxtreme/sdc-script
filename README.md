@@ -14,7 +14,7 @@ To use the Sysdig Cloud Scripting Library your host needs Python 3.x installed. 
 Install git and clone the script repository:
 ```
 sudo apt-get install git
-sudo git clone git@github.com:draios/sdc-script.git
+git clone https://github.com/draios/sdc-script.git
 ```
 
 Enter the scripting folder and install the environment:
@@ -23,7 +23,7 @@ cd sdc-script
 sudo python3 setup.py install
 ```
 
-Install additional dependencies via pip3
+Install required dependencies via pip3
 ```
 sudo apt-get install python3-pip
 sudo pip3 install -r requirements.txt
